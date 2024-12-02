@@ -20,7 +20,7 @@ const SessionTable = () => {
             students.map((item, index) => (
               <div
                 key={index}
-                className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white"
+                className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white shadow-sm"
               >
                 <div className="p-4 flex items-center gap-2">
                   <img
@@ -30,24 +30,24 @@ const SessionTable = () => {
                   />
                 </div>
                 <div>
-                  <p className="text-xl">{item?.name}</p>
-                  <p className="text-base text-gray-500">{item?.years}</p>
+                  <p className="text-base">{item?.name}</p>
+                  <p className="text-sm text-gray-500">{item?.years}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Courses</p>
-                  <p className="text-xl">{item?.department}</p>
+                  <p className="text-sm text-gray-500">Courses</p>
+                  <p className="text-base">{item?.department}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Session</p>
-                  <p className="text-xl">{item?.course}</p>
+                  <p className="text-sm text-gray-500">Session</p>
+                  <p className="text-base">{item?.course}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Batch</p>
-                  <p className="text-xl">{item?.batch}</p>
+                  <p className="text-sm text-gray-500">Batch</p>
+                  <p className="text-base">{item?.batch}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Students</p>
-                  <p className="text-xl">{item?.students}</p>
+                  <p className="text-sm text-gray-500">Students</p>
+                  <p className="text-base">{item?.students}</p>
                 </div>
 
                 <div className="h-12 flex items-end ">

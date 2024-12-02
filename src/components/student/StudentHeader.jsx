@@ -34,7 +34,7 @@ const StudentHeader = () => {
         <p className="text-base text-gray-400 mb-2">
           Powered by AppMingle Media
         </p>
-        <h1 className="text-3xl font-semibold">
+        <h1 className="text-2xl font-semibold">
           {pathname === "/student-dashboard" ? "Student Dashboard" : ""}
           {pathname === "/student" ? "All Students" : ""}
           {pathname === "/student-department" ? "Department" : ""}
@@ -45,36 +45,36 @@ const StudentHeader = () => {
           {pathname === "/student-info-portal" ? "Info Portal" : ""}
         </h1>
       </div>
-      <div className=" flex flex-col justify-end gap-5 w-[40%]">
-        <div className="flex justify-end gap-4">
-          <button className="flex justify-start gap-3 items-center w-[50%] px-3 py-2 bg-gray-300 rounded-lg">
-            <span className="text-xl font-extrabold">
+      <div className=" flex flex-col justify-end gap-5 w-[60%]">
+        <div className="flex justify-end gap-4 h-10">
+          <button className="flex justify-start gap-3 items-center w-[40%] px-2 bg-gray-300 rounded-lg">
+            <span className="text-lg font-extrabold">
               <IoCalendarClearOutline />
             </span>
-            <span className="text-lg">Today</span>
+            <span className="text-base">Today</span>
           </button>
-          <button className="px-3 py-2 bg-white rounded-lg text-xl font-bold">
+          <button className="px-3 bg-white rounded-lg text-xl font-bold">
             <SlBell />
           </button>
-          <button className="flex justify-start items-center gap-2 rounded-lg px-3 py-2 w-[40%] bg-white">
+          <button className="flex justify-start items-center gap-2 rounded-lg px-3 py-2  bg-white">
             <img src={StudentImg} alt="" className="w-8 h-8 rounded-full" />
-            <span className="text-lg font-semibold">College Name</span>
+            <span className="text-sm font-semibold">College Name</span>
           </button>
         </div>
 
         {pathname === "/student" ? (
           <div className="flex items-center justify-end gap-4">
-            <button className="bg-green-500 text-white px-3 py-2 rounded-lg w-[40%] flex items-center gap-2">
-              <span className="text-2xl">
+            <button className="bg-green-500 text-white px-3 py-2 rounded-lg  flex items-center gap-2 text-sm">
+              <span className="text-xl">
                 <RiFileExcel2Line />
               </span>
               Download Excel
             </button>
             <button
               onClick={() => setShowAddNewStudent(true)}
-              className="bg-blue-500 text-white px-3 py-2 rounded-lg w-[40%] flex items-center gap-2"
+              className="bg-blue-500 text-white px-3 py-2 rounded-lg text-sm  flex items-center gap-2 "
             >
-              <span className="text-2xl">
+              <span className="text-xl">
                 <FaPlus />
               </span>
               Add New Student
@@ -89,9 +89,9 @@ const StudentHeader = () => {
           <div className="flex items-center justify-end gap-4">
             <button
               onClick={() => setShowAddNewDepartment(true)}
-              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2"
+              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2 text-sm "
             >
-              <span className="text-2xl">
+              <span className="text-xl">
                 <FaPlus />
               </span>
               Add New Department
@@ -107,9 +107,9 @@ const StudentHeader = () => {
           <div className="flex items-center justify-end gap-4">
             <button
               onClick={() => setShowAddNewCourse(true)}
-              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2"
+              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2 text-sm "
             >
-              <span className="text-2xl">
+              <span className="text-xl">
                 <FaPlus />
               </span>
               Add New Courses
@@ -124,9 +124,9 @@ const StudentHeader = () => {
           <div className="flex items-center justify-end gap-4">
             <button
               onClick={() => setShowAddNewSession(true)}
-              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2"
+              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2 text-sm"
             >
-              <span className="text-2xl">
+              <span className="text-xl">
                 <FaPlus />
               </span>
               Add New Session
@@ -141,9 +141,9 @@ const StudentHeader = () => {
           <div className="flex items-center justify-end gap-4">
             <button
               onClick={() => setShowAddNewBatch(true)}
-              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2"
+              className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2 text-sm "
             >
-              <span className="text-2xl">
+              <span className="text-xl">
                 <FaPlus />
               </span>
               Add New Batch

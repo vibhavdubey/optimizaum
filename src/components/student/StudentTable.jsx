@@ -22,7 +22,7 @@ const StudentTable = () => {
             students.map((item, index) => (
               <div
                 key={index}
-                className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white"
+                className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white shadow-sm"
               >
                 <div className="p-4 flex items-center gap-2">
                   <img
@@ -32,27 +32,27 @@ const StudentTable = () => {
                   />
                 </div>
                 <div>
-                  <p className="text-xl">{item?.name}</p>
-                  <p className="text-base text-gray-500">{item?.email}</p>
+                  <p className="text-base">{item?.name}</p>
+                  <p className="text-sm text-gray-500">{item?.email}</p>
                 </div>
                 <div className="border-l-2 border-b-2 border-violet-600 border-t-violet-300 border-r-violet-300 rounded-full px-2 py-1">
-                  <p className="text-violet-600 text-xl">{item?.num}</p>
+                  <p className="text-violet-600 text-base">{item?.num}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Gender</p>
-                  <p className="text-xl">{item?.gender}</p>
+                  <p className="text-sm text-gray-500">Gender</p>
+                  <p className="text-base">{item?.gender}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Birthday</p>
-                  <p className="text-xl">{item?.birthday}</p>
+                  <p className="text-sm text-gray-500">Birthday</p>
+                  <p className="text-base">{item?.birthday}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Contact Number</p>
-                  <p className="text-xl">{item?.contact}</p>
+                  <p className="text-sm text-gray-500">Contact Number</p>
+                  <p className="text-base">{item?.contact}</p>
                 </div>
                 <div>
-                  <p className="text-base text-gray-500">Roll Number</p>
-                  <p className="text-xl">{item?.roll}</p>
+                  <p className="text-sm text-gray-500">Roll Number</p>
+                  <p className="text-base">{item?.roll}</p>
                 </div>
 
                 <div className="h-12 flex items-end ">
@@ -62,7 +62,7 @@ const StudentTable = () => {
                 </div>
                 <p>
                   <span
-                    className={`px-4 py-2 rounded text-base ${
+                    className={`px-4 py-2 rounded text-sm ${
                       item.status === "Draft"
                         ? "bg-yellow-100 text-yellow-800"
                         : "bg-green-100 text-green-800"

@@ -12,9 +12,9 @@ const EmployeeRow = ({
   rank,
 }) => {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto ">
       <div className="w-full border-collapse">
-        <div className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white">
+        <div className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white shadow-sm">
           <div className="p-4 flex items-center gap-2">
             <img
               src={EmployeeImg}
@@ -23,24 +23,24 @@ const EmployeeRow = ({
             />
           </div>
           <div>
-            <p className="text-xl">{name}</p>
-            <p className="text-base text-gray-500">{email}</p>
+            <p className="text-base">{name}</p>
+            <p className="text-sm text-gray-500">{email}</p>
           </div>
           <div>
-            <p className="text-base text-gray-500">Gender</p>
-            <p className="text-xl">{gender}</p>
+            <p className="text-sm text-gray-500">Gender</p>
+            <p className="text-base">{gender}</p>
           </div>
           <div>
-            <p className="text-base text-gray-500">Birthday</p>
-            <p className="text-xl">{birthday}</p>
+            <p className="text-sm text-gray-500">Birthday</p>
+            <p className="text-base">{birthday}</p>
           </div>
           <div>
-            <p className="text-base text-gray-500">Full age</p>
-            <p className="text-xl">{age}</p>
+            <p className="text-sm text-gray-500">Full age</p>
+            <p className="text-base">{age}</p>
           </div>
           <div>
-            <p className="text-base text-gray-500">Position</p>
-            <p className="text-xl">{position}</p>
+            <p className="text-sm text-gray-500">Position</p>
+            <p className="text-base">{position}</p>
           </div>
 
           <div className="h-12 flex items-end ">
@@ -73,7 +73,7 @@ const EmployeeList = () => {
   // Add more employees as needed
 
   return (
-    <section className="p-4 rounded-lg shadow-sm">
+    <section className="p-4 rounded-lg">
       <h2 className="font-medium text-lg">Employee</h2>
       {employees.map((employee, index) => (
         <EmployeeRow key={index} {...employee} />

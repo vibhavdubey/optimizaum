@@ -28,12 +28,12 @@ const FilterBar = () => {
             key={index}
             className="flex items-center justify-between gap-5 rounded-3xl bg-[#01569C] text-white shadow w-1/5"
           >
-            <div className="w-7 h-7 rounded-full border-2 border-white m-1 flex justify-center items-center bg-white">
-              <img src={StudentImg} alt="" className="w-6 h-6 rounded-full" />
+            <div className="w-6 h-6 rounded-full border-2 border-white m-1 flex justify-center items-center bg-white">
+              <img src={StudentImg} alt="" className="w-5 h-5 rounded-full" />
             </div>
-            <div className="flex justify-center items-center gap-3 m-1">
+            <div className="flex justify-center items-center text-sm gap-3 m-1">
               {filter}
-              <span className="text-blue-500 text-xl font-bold bg-white h-7 w-7 rounded-full flex justify-center items-center mr-2">
+              <span className="text-blue-500 text-xl font-bold bg-white h-5 w-5 rounded-full flex justify-center items-center mr-2">
                 <RxCross2 />
               </span>
             </div>

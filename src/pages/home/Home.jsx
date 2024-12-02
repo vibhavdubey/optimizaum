@@ -21,8 +21,8 @@ const Home = () => {
     <div className="min-h-screen bg-[#F2F9FC]">
       <Header />
       <main className="p-6">
-        <section className="flex justify-between gap-6">
-          <div className="w-full p-4 bg-white rounded-[10px]">
+        <section className="flex justify-between gap-6 min-h-[80%]">
+          <div className="w-full p-4 bg-white rounded-[10px] shadow-sm">
             <h2 className="font-medium text-lg">Login</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
               {departments.map((department, index) => (

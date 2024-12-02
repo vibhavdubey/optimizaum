@@ -20,7 +20,7 @@ const DashboardStudent = () => {
     navigate("/");
   };
   return (
-    <div className="max-h-[98vh] w-[20%] overflow-y-auto m-1 bg-white shadow-md flex flex-col justify-between rounded-2xl py-4 sticky top-2 custom-scrollbar">
+    <div className="max-h-[98vh] w-[25%] overflow-y-auto m-1 bg-white shadow-md flex flex-col justify-between rounded-2xl py-4 sticky top-2 custom-scrollbar">
       {/* Top Section */}
       <div className="my-5">
         {/* Logo */}
@@ -35,7 +35,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-dashboard"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UserIcon className="w-6 h-6" />
               <span className="font-medium">Dashboard</span>
@@ -44,7 +44,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UserIcon className="w-6 h-6" />
               <span className="font-medium">Student</span>
@@ -53,7 +53,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-department"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <AcademicCapIcon className="w-6 h-6" />
               <span className="font-medium">Department</span>
@@ -62,7 +62,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-course"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <CalendarIcon className="w-6 h-6" />
               <span className="font-medium">Course</span>
@@ -71,7 +71,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-session"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <CalendarIcon className="w-6 h-6" />
               <span className="font-medium">Session</span>
@@ -80,7 +80,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-batch"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UsersIcon className="w-6 h-6" />
               <span className="font-medium">Batch</span>
@@ -89,7 +89,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-chat"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <ChatBubbleLeftEllipsisIcon className="w-6 h-6" />
               <span className="font-medium">Chat</span>
@@ -98,7 +98,7 @@ const DashboardStudent = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/student-info-portal"
-              className="flex items-center space-x-3 text-gray-500  hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500  hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <FolderIcon className="w-6 h-6" />
               <span className="font-medium">Info Portal</span>
@@ -108,13 +108,13 @@ const DashboardStudent = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-40">
+      <div className="mt-56">
         <div className="">
           <SupportSVG />
         </div>
         <div
           onClick={handleLogout}
-          className="mt-6 px-4 flex items-center space-x-3 text-gray-500 hover:text-red-500 cursor-pointer text-2xl"
+          className="mt-6 px-4 flex items-center space-x-3 text-gray-500 hover:text-red-500 cursor-pointer text-base"
         >
           <ArrowLeftOnRectangleIcon className="w-6 h-6" />
           <span>Logout</span>

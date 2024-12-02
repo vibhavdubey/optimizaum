@@ -1,19 +1,17 @@
 import { HiDotsVertical } from "react-icons/hi";
 import Images from "../../assets/studentImg.png";
 
-const DepartmentTable = () => {
-  const students = Array(5).fill({
-    name: "Vikash Kumar",
-    email: "evanyates@gmail.com",
-    num: 42,
-    courses: 10,
-    session: 10,
-    batch: 10,
-    students: 100,
+const TransactionTable = () => {
+  const students = Array(10).fill({
+    department: "Department Name",
+    courseName: "Course Name",
+    session: "2019-2020",
+    paymentCollectedBy: "Vikash Kumar",
+    paymentType: "Online",
+    roll: "2389737294",
     course: "B.Tech",
     status: "Done",
   });
-
   return (
     <div className="overflow-x-auto">
       <div className="w-full border-collapse">
@@ -32,27 +30,24 @@ const DepartmentTable = () => {
                   />
                 </div>
                 <div>
+                  <p className="text-sm text-gray-500">Department</p>
                   <p className="text-base">{item?.name}</p>
-                  <p className="text-sm text-gray-500">{item?.email}</p>
-                </div>
-                <div className="border-l-2 border-b-2 border-violet-600 border-t-violet-300 border-r-violet-300 rounded-full px-2 py-1">
-                  <p className="text-violet-600 text-base">{item?.num}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Courses</p>
-                  <p className="text-base">{item?.courses}</p>
+                  <p className="text-sm text-gray-500">Gender</p>
+                  <p className="text-base">{item?.gender}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Session</p>
-                  <p className="text-base">{item?.session}</p>
+                  <p className="text-sm text-gray-500">Payment Collected By</p>
+                  <p className="text-base">{item?.paymentCollectedBy}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Batch</p>
-                  <p className="text-base">{item?.batch}</p>
+                  <p className="text-xm text-gray-500">Payment Type</p>
+                  <p className="text-base">{item?.paymentType}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Students</p>
-                  <p className="text-base">{item?.students}</p>
+                  <p className="text-xm text-gray-500">Roll Number</p>
+                  <p className="text-base">{item?.roll}</p>
                 </div>
 
                 <div className="h-12 flex items-end ">
@@ -60,7 +55,6 @@ const DepartmentTable = () => {
                     {item?.course}
                   </p>
                 </div>
-
                 <p>
                   <span
                     className={`px-4 py-2 rounded text-sm ${
@@ -85,4 +79,4 @@ const DepartmentTable = () => {
   );
 };
 
-export default DepartmentTable;
+export default TransactionTable;

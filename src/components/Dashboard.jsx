@@ -16,7 +16,7 @@ import { MyContext } from "../context/MyContext";
 const Dashboard = () => {
   const { userType, setUserType } = useContext(MyContext);
   return (
-    <div className="max-h-[98vh] w-[20%] overflow-y-auto m-1 bg-white shadow-md flex flex-col justify-between rounded-2xl py-4 sticky top-2 custom-scrollbar">
+    <div className="max-h-[98vh] w-[25%] overflow-y-auto m-1 bg-white shadow-md flex flex-col justify-between rounded-2xl py-4 sticky top-2 custom-scrollbar">
       {/* Top Section */}
       <div className="my-5">
         {/* Logo */}
@@ -31,7 +31,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UserIcon className="w-6 h-6" />
               <span className="font-medium">Department</span>
@@ -40,7 +40,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <AcademicCapIcon className="w-6 h-6" />
               <span className="font-medium">Website</span>
@@ -49,7 +49,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <CalendarIcon className="w-6 h-6" />
               <span className="font-medium">Contact Info</span>
@@ -58,7 +58,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <CalendarIcon className="w-6 h-6" />
               <span className="font-medium">Holidays</span>
@@ -67,7 +67,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UsersIcon className="w-6 h-6" />
               <span className="font-medium">Employees</span>
@@ -76,7 +76,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <ChatBubbleLeftEllipsisIcon className="w-6 h-6" />
               <span className="font-medium">Messenger</span>
@@ -85,7 +85,7 @@ const Dashboard = () => {
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
               to="/"
-              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-2xl"
+              className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <FolderIcon className="w-6 h-6" />
               <span className="font-medium">Info Portal</span>
@@ -95,9 +95,11 @@ const Dashboard = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-20">
-        <SupportSVG />
-        <div className="mt-6 px-4 flex items-center space-x-3 text-gray-500 hover:text-red-500 cursor-pointer text-2xl">
+      <div className="mt-56">
+        <div className=" w-full  flex justify-start">
+          <SupportSVG />
+        </div>
+        <div className="mt-6 px-4 flex items-center space-x-3 text-gray-500 hover:text-red-500 cursor-pointer text-base">
           <ArrowLeftOnRectangleIcon className="w-6 h-6" />
           <span>Logout</span>
         </div>
