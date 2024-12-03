@@ -17,7 +17,7 @@ const DashboardFinance = () => {
   const { userType, setUserType, navigate } = useContext(MyContext);
   const handleLogout = () => {
     setUserType("home");
-    navigate("/");
+    navigate("/optimizaum");
   };
   return (
     <div className="max-h-[98vh] w-[25%] overflow-y-auto m-1 bg-white shadow-md flex flex-col justify-between rounded-2xl py-4 sticky top-2 custom-scrollbar">
