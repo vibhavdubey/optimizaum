@@ -10,6 +10,8 @@ const MyContextProvider = (props) => {
   const [showAddNewCourse, setShowAddNewCourse] = useState(false);
   const [showAddNewSession, setShowAddNewSession] = useState(false);
   const [showAddNewBatch, setShowAddNewBatch] = useState(false);
+
+  const [showChooseLoginUser, setShowChooseLoginUser] = useState(false);
   const navigate = useNavigate();
 
   const [userType, setUserType] = useState("home");
@@ -28,6 +30,9 @@ const MyContextProvider = (props) => {
     setShowAddNewSession,
     showAddNewBatch,
     setShowAddNewBatch,
+
+    showChooseLoginUser,
+    setShowChooseLoginUser,
 
     userType,
     setUserType,

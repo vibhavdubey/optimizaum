@@ -1,22 +1,23 @@
-import React from "react";
 import { FaRegEdit, FaArrowUp, FaCalendar } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 import { ImAttachment } from "react-icons/im";
+import StudentImg from "../../assets/studentImg.png";
 
 const FeeManagementSideBar = () => {
   return (
-    <div className="bg-white shadow-md rounded-2xl p-4 w-1/3">
+    <div className="bg-white shadow-lg rounded-2xl p-4 w-[25%]">
       <div className="flex justify-between items-center mb-4">
         <div>
+          <h2 className="text-gray-500">Project Number</h2>
           <p className="text-md">PN0001245</p>
         </div>
-        <button className="text-gray-900 hover:text-gray-700 p-2 rounded-[10px] bg-gray-100 flex justify-center items-center ">
+        <button className="text-gray-900 hover:text-gray-700 p-2 rounded-[10px] bg-gray-200 ">
           <FaRegEdit size={20} />
         </button>
       </div>
 
-      <h3 className="text-md font-bold">Description</h3>
-      <p className="text-gray-700 mb-5">
+      <h3 className="text-md font-semibold my-4">Description</h3>
+      <p className="text-gray-600 mb-5">
         App for maintaining your medical record, making appointments with a
         doctor, storing prescriptions
       </p>
@@ -24,7 +25,7 @@ const FeeManagementSideBar = () => {
       <h3 className="text-gray-500 text-md">Reporter</h3>
       <div className="flex items-center mb-5">
         <img
-          src="/reporter-avatar.png"
+          src={StudentImg}
           alt="Reporter Avatar"
           className="w-8 h-8 rounded-full mr-2"
         />
@@ -34,21 +35,21 @@ const FeeManagementSideBar = () => {
       <h3 className="text-gray-500 text-md">Assignees</h3>
       <div className="flex items-center mb-5">
         <img
-          src="./images/photo.png"
+          src={StudentImg}
           alt="Assignee 1"
-          className="w-8 h-8 rounded-full mr-2"
+          className="w-8 h-8 rounded-full -mr-2"
         />
         <img
-          src="./images/photo.png"
+          src={StudentImg}
           alt="Assignee 2"
-          className="w-8 h-8 rounded-full mr-2"
+          className="w-8 h-8 rounded-full -mr-3"
         />
         <img
-          src="./images/photo.png"
+          src={StudentImg}
           alt="Assignee 3"
-          className="w-8 h-8 rounded-full mr-2"
+          className="w-8 h-8 rounded-full -mr-2"
         />
-        <span className="text-gray-700">+2</span>
+        <span className="text-white bg-blue-500 p-2 rounded-full">+2</span>
       </div>
 
       <h3 className="text-gray-500 text-md">Priority</h3>

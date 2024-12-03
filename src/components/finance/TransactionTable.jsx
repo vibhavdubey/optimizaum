@@ -13,7 +13,7 @@ const TransactionTable = () => {
     status: "Done",
   });
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto px-4">
       <div className="w-full border-collapse">
         <div>
           {students &&
@@ -67,7 +67,7 @@ const TransactionTable = () => {
                   </span>
                 </p>
                 <div>
-                  <button className="text-black flex flex-col gap-2 ">
+                  <button className="text-black flex flex-col gap-2 bg-[#F5F8FD] p-3 rounded-[10px]">
                     <HiDotsVertical />
                   </button>
                 </div>

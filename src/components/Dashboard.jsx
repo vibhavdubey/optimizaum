@@ -34,12 +34,12 @@ const Dashboard = () => {
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UserIcon className="w-6 h-6" />
-              <span className="font-medium">Department</span>
+              <span className="font-medium">Choose Role</span>
             </NavLink>
           </li>
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/"
+              to="/website"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <AcademicCapIcon className="w-6 h-6" />
@@ -48,7 +48,7 @@ const Dashboard = () => {
           </li>
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/"
+              to="/contact-info-home"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <CalendarIcon className="w-6 h-6" />
@@ -57,7 +57,7 @@ const Dashboard = () => {
           </li>
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/"
+              to="/holidays"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <CalendarIcon className="w-6 h-6" />
@@ -66,7 +66,7 @@ const Dashboard = () => {
           </li>
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/"
+              to="/employees"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UsersIcon className="w-6 h-6" />
@@ -75,7 +75,7 @@ const Dashboard = () => {
           </li>
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/"
+              to="/messenger"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <ChatBubbleLeftEllipsisIcon className="w-6 h-6" />
@@ -84,7 +84,7 @@ const Dashboard = () => {
           </li>
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/"
+              to="/info-portal-home"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <FolderIcon className="w-6 h-6" />
@@ -95,7 +95,7 @@ const Dashboard = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-56">
+      <div className="mt-40">
         <div className=" w-full  flex justify-start">
           <SupportSVG />
         </div>

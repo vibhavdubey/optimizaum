@@ -108,7 +108,7 @@ const DashboardStudent = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-56">
+      <div className="mt-52">
         <div className="">
           <SupportSVG />
         </div>

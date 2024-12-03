@@ -65,7 +65,7 @@ const UpcomingHolidays = () => {
           href="#"
           className="text-blue-500 text-sm font-medium hover:underline"
         >
-          View all
+          view all
         </a>
       </div>
       <div className="mt-10">

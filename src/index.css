@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-a.active{
-    /* background-color: ; */
+a.active {
+  color: #3b82f6;
+  background-color: #eaf3fe;
+}
+li:has(a.active) {
+  border-right: 4px solid #3b82f6;
 }
 .custom-scrollbar::-webkit-scrollbar {
   display: none;
