@@ -21,7 +21,7 @@ const AddNewCourse = () => {
   return (
     <div
       style={{ backdropFilter: "blur(5px)" }}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50"
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <button
@@ -76,13 +76,13 @@ const AddNewCourse = () => {
             />
           </div>
 
-          {/* Department Image */}
+          {/* Course Image */}
           <div>
             <label
               htmlFor="departmentImage"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Department Image
+              Course Image
             </label>
             <div className="flex items-center border border-gray-300 rounded-md p-2">
               <input

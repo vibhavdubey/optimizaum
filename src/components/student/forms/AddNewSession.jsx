@@ -16,7 +16,7 @@ const AddNewSession = () => {
   return (
     <div
       style={{ backdropFilter: "blur(5px)" }}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 overflow-y-auto"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 overflow-y-auto z-50"
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <button
@@ -66,7 +66,7 @@ const AddNewSession = () => {
               id="courseName"
               value={courseName}
               onChange={(e) => setCourseName(e.target.value)}
-              placeholder="Enter department name"
+              placeholder="Enter course name"
               className="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>

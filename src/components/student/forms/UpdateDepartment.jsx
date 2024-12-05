@@ -1,10 +1,16 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../context/MyContext";
 
-const AddNewDepartment = () => {
-  const { showAddNewDepartment, setShowAddNewDepartment, API_BASE_URL } =
-    useContext(MyContext);
+const UpdateDepartment = () => {
+  const {
+    showUpdateDepartment,
+    setShowUpdateDepartment,
+    API_BASE_URL,
+    studentDepartmentDataId,
+    getAllStudentDepartment,
+  } = useContext(MyContext);
+
   const [departmentName, setDepartmentName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -12,6 +18,25 @@ const AddNewDepartment = () => {
   const handleImageUpload = (e) => {
     setImage(e.target.files[0]);
   };
+
+  useEffect(() => {
+    axios
+      .get(`${API_BASE_URL}/departments/${studentDepartmentDataId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((responce) => {
+        console.log(responce.data?.data);
+        const data = responce.data?.data;
+        setDepartmentName(data.departmentName);
+        setDescription(data.description);
+        // setImage(data.departmentImage);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [API_BASE_URL]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,8 +50,8 @@ const AddNewDepartment = () => {
     }
 
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}/student-management/departments`,
+      const response = await axios.put(
+        `${API_BASE_URL}/student-management/departments/${studentDepartmentDataId}`,
         formData,
         {
           headers: {
@@ -36,7 +61,7 @@ const AddNewDepartment = () => {
       );
 
       console.log("Response:", response.data);
-      alert("Department added successfully!");
+      alert("Department Updated successfully!");
 
       // Reset form fields
       setDepartmentName("");
@@ -44,31 +69,32 @@ const AddNewDepartment = () => {
       setImage(null);
 
       // Close modal
-      setShowAddNewDepartment(false);
+      setShowUpdateDepartment(false);
+      getAllStudentDepartment();
     } catch (error) {
       console.error(
         "Error adding department:",
         error.response || error.message
       );
-      alert("Failed to add department. Please try again.");
+      alert("Failed to update department. Please try again.");
     }
   };
 
   return (
     <div
       style={{ backdropFilter: "blur(5px)" }}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-0 z-50"
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <button
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
           aria-label="Close"
-          onClick={() => setShowAddNewDepartment(false)}
+          onClick={() => setShowUpdateDepartment(false)}
         >
           ✖
         </button>
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
-          Add New Department
+          Update Department
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Department Image */}
@@ -152,4 +178,4 @@ const AddNewDepartment = () => {
   );
 };
 
-export default AddNewDepartment;
+export default UpdateDepartment;

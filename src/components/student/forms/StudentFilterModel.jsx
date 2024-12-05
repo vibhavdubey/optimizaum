@@ -22,7 +22,7 @@ const StudentFilterModel = () => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
       style={{ backdropFilter: "blur(5px)" }}
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">

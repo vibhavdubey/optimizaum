@@ -16,7 +16,7 @@ const AddNewBatch = () => {
   return (
     <div
       style={{ backdropFilter: "blur(5px)" }}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50"
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <button

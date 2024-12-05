@@ -13,6 +13,9 @@ const StudentTable = () => {
     course: "B.Tech",
     status: "Done",
   });
+  const handleUpdate = (id) => {};
+  const handleDelete = (id) => {};
+  const handleProfile = (id) => {};
 
   return (
     <div className="overflow-x-auto">
@@ -71,10 +74,32 @@ const StudentTable = () => {
                     {item?.status}
                   </span>
                 </p>
-                <div>
+                <div className="group relative">
                   <button className="text-black flex flex-col gap-2 bg-[#F5F8FD] p-3 rounded-[10px]">
                     <HiDotsVertical />
                   </button>
+                  <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4 z-40">
+                    <div className="bg-[#F5F8FD] shadow-2xl rounded-[10px] p-1 flex flex-col justify-center items-center gap-2 px-3 py-2 ">
+                      <button
+                        className="px-4 py-2 bg-[#E1F8F2] text-green-800 rounded-[10px]"
+                        onClick={() => handleUpdate(item._id)}
+                      >
+                        Update
+                      </button>
+                      <button
+                        className="px-4 py-2 bg-[#F8E0E1] text-red-800 rounded-[10px]"
+                        onClick={() => handleDelete(item._id)}
+                      >
+                        Delete
+                      </button>
+                      <button
+                        className="px-4 py-2 bg-[#988CFF] text-violet-800 rounded-[10px]"
+                        onClick={() => handleProfile(item._id)}
+                      >
+                        Profile
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
