@@ -3,8 +3,13 @@ import { useContext, useState } from "react";
 import { MyContext } from "../../../context/MyContext";
 
 const AddNewDepartment = () => {
-  const { showAddNewDepartment, setShowAddNewDepartment, API_BASE_URL } =
-    useContext(MyContext);
+  const {
+    showAddNewDepartment,
+    setShowAddNewDepartment,
+    API_BASE_URL,
+    getAllStudentDepartment,
+  } = useContext(MyContext);
+
   const [departmentName, setDepartmentName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -24,34 +29,29 @@ const AddNewDepartment = () => {
       formData.append("departmentImage", image);
     }
 
-    try {
-      const response = await axios.post(
-        `${API_BASE_URL}/student-management/departments`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+    axios
+      .post(`${API_BASE_URL}/student-management/departments`, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        console.log("Response:", response.data);
+        alert("Department added successfully!");
 
-      console.log("Response:", response.data);
-      alert("Department added successfully!");
+        // Reset form fields
+        setDepartmentName("");
+        setDescription("");
+        setImage(null);
 
-      // Reset form fields
-      setDepartmentName("");
-      setDescription("");
-      setImage(null);
-
-      // Close modal
-      setShowAddNewDepartment(false);
-    } catch (error) {
-      console.error(
-        "Error adding department:",
-        error.response || error.message
-      );
-      alert("Failed to add department. Please try again.");
-    }
+        // Close form modal
+        setShowAddNewDepartment(false);
+        getAllStudentDepartment();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Failed to add department. Please try again.");
+      });
   };
 
   return (

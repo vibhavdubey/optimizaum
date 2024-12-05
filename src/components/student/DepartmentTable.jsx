@@ -27,7 +27,8 @@ const DepartmentTable = ({
     setStudentDepartmentDataId(id);
     setShowUpdateDepartment(true);
   };
-  const handleDelete = async (id) => {
+
+  const handleDelete = (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this department?"
     );
@@ -53,35 +54,37 @@ const DepartmentTable = ({
   const handleProfile = (id) => {};
 
   return (
-    <div className="hover:bg-gray-50 rounded-[15px] flex justify-around w-full items-center my-2 bg-white shadow-sm">
-      <div className="p-4 flex items-center gap-2">
-        <img
-          src={`${API_BASE_URL}/uploads/${departmentImage}`}
-          alt="avatar"
-          className="w-14 h-14 rounded-full"
-        />
-      </div>
-      <div>
-        <p className="text-base">{departmentName}</p>
-        <p className="text-sm text-gray-500">
-          {description ? `${description.slice(0, 30)}...` : "---"}
-        </p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Courses</p>
-        <p className="text-base text-center">{courses ? courses : "---"}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Session</p>
-        <p className="text-base text-center">{session ? session : "---"}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Batch</p>
-        <p className="text-base text-center">{batch ? batch : "---"}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Students</p>
-        <p className="text-base text-center">{students ? students : "---"}</p>
+    <div className="hover:bg-gray-50 rounded-[15px] flex justify-between w-full items-center my-2 bg-white shadow-sm">
+      <div className="grid grid-cols-3 md:grid-cols-6  items-center w-[85%]">
+        <div className="p-4 flex items-center gap-2">
+          <img
+            src={`${API_BASE_URL}/uploads/${departmentImage}`}
+            alt="avatar"
+            className="w-14 h-14 rounded-full"
+          />
+        </div>
+        <div className="flex flex-col">
+          <p className="text-base">{departmentName ? departmentName : "---"}</p>
+          <p className="text-sm text-gray-500">
+            {description ? `${description.slice(0, 30)}...` : "---"}
+          </p>
+        </div>
+        <div className="flex flex-col items-center">
+          <p className="text-sm text-gray-500">Courses</p>
+          <p className="text-base text-center">{courses ? courses : "---"}</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <p className="text-sm text-gray-500">Session</p>
+          <p className="text-base text-center">{session ? session : "---"}</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <p className="text-sm text-gray-500">Batch</p>
+          <p className="text-base text-center">{batch ? batch : "---"}</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <p className="text-sm text-gray-500">Students</p>
+          <p className="text-base text-center">{students ? students : "---"}</p>
+        </div>
       </div>
 
       <div className="group relative">

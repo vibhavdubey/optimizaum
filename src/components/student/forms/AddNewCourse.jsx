@@ -1,21 +1,60 @@
-import React, { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../context/MyContext";
+import axios from "axios";
 
 const AddNewCourse = () => {
-  const { showAddNewCourse, setShowAddNewCourse } = useContext(MyContext);
+  const {
+    showAddNewCourse,
+    setShowAddNewCourse,
+    API_BASE_URL,
+    getAllStudentCourse,
+
+    getAllStudentDepartment, // function to get all student department data
+    studentDepartmentDatas,
+  } = useContext(MyContext);
+
   const [department, setDepartment] = useState("");
   const [courseName, setCourseName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
 
+  // to get all department
+  useEffect(() => {
+    getAllStudentDepartment();
+  }, [API_BASE_URL]);
+
   const handleImageUpload = (e) => {
     setImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ department, courseName, description, image });
-    // Add your form submission logic here
+
+    const formData = new FormData();
+    formData.append("department", department);
+    formData.append("courseName", courseName);
+    formData.append("description", description);
+    if (image) {
+      formData.append("courseImage", image);
+    }
+
+    axios
+      .post(`${API_BASE_URL}/student-management/courses`, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Add token if needed
+        },
+      })
+      .then((response) => {
+        console.log("Response : ", response);
+        alert("Course added successfully!");
+        setShowAddNewCourse(false); // Close form
+        // Optionally, refresh or update course list here
+        getAllStudentCourse();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Failed to add course. Please try again.");
+      });
   };
 
   return (
@@ -52,9 +91,12 @@ const AddNewCourse = () => {
               <option value="" disabled>
                 Select Department
               </option>
-              <option value="department1">Department 1</option>
-              <option value="department2">Department 2</option>
-              <option value="department3">Department 3</option>
+              {studentDepartmentDatas &&
+                studentDepartmentDatas.map((item, index) => (
+                  <option value={item?.departmentName} key={index}>
+                    {item?.departmentName}
+                  </option>
+                ))}
             </select>
           </div>
 

@@ -1,97 +1,132 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../context/MyContext";
+import axios from "axios";
 
-const UpdateDepartment = () => {
+const UpdateCourse = () => {
   const {
-    showUpdateDepartment,
-    setShowUpdateDepartment,
+    showUpdateCourse,
+    setShowUpdateCourse,
     API_BASE_URL,
-    studentDepartmentDataId,
-    getAllStudentDepartment,
-    getSingleStudentDepartment,
-    singleStudentDepartmentDatas,
+    studentCourseDataId,
+    getAllStudentCourse,
+    getSingleStudentCourse,
+    singleStudentCourseDatas,
   } = useContext(MyContext);
-
-  const [departmentName, setDepartmentName] = useState("");
+  const [department, setDepartment] = useState("");
+  const [courseName, setCourseName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    getSingleStudentCourse(studentCourseDataId); // to get single course by id
+    setCourseName(singleStudentCourseDatas.courseName);
+    setDescription(singleStudentCourseDatas.description);
+    // setImage()
+  }, [API_BASE_URL]);
 
   const handleImageUpload = (e) => {
     setImage(e.target.files[0]);
   };
 
-  useEffect(() => {
-    getSingleStudentDepartment(studentDepartmentDataId);
-    setDepartmentName(singleStudentDepartmentDatas.departmentName);
-    setDescription(singleStudentDepartmentDatas.description);
-    // setImage(singleStudentDepartmentDatas.departmentImage);
-  }, [API_BASE_URL]);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create FormData to include file upload
     const formData = new FormData();
-    formData.append("departmentName", departmentName);
+    formData.append("department", department);
+    formData.append("name", courseName);
     formData.append("description", description);
-    if (image) {
-      formData.append("departmentImage", image);
-    }
+    if (image) formData.append("image", image);
 
     axios
-      .put(
-        `${API_BASE_URL}/student-management/departments/${studentDepartmentDataId}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      )
+      .put(`${API_BASE_URL}/course/${studentCourseDataId}`, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((response) => {
-        console.log("Response:", response.data);
-        alert("Department Updated successfully!");
+        console.log("Response : ", response);
+        alert("Course Updated successfully!");
 
         // Reset form fields
-        setDepartmentName("");
+        setDepartment("");
+        setCourseName("");
         setDescription("");
         setImage(null);
 
-        // Close modal
-        setShowUpdateDepartment(false);
-        getAllStudentDepartment();
+        // close model
+        setShowUpdateCourse(false);
+        getAllStudentCourse();
       })
       .catch((error) => {
         console.log(error);
-        alert("Department Fail to Updated");
+        alert("Course Fail to Updated");
       });
   };
-
   return (
     <div
       style={{ backdropFilter: "blur(5px)" }}
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-0 z-50"
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50"
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <button
+          onClick={() => setShowUpdateCourse(false)}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
           aria-label="Close"
-          onClick={() => setShowUpdateDepartment(false)}
         >
           ✖
         </button>
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
-          Update Department
+          Add New Courses
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Department Image */}
+          {/* Department Dropdown */}
+          <div>
+            <label
+              htmlFor="department"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Department
+            </label>
+            <select
+              id="department"
+              value={department}
+              onChange={(e) => setDepartment(e.target.value)}
+              className="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="" disabled>
+                Select Department
+              </option>
+              <option value="department1">Department 1</option>
+              <option value="department2">Department 2</option>
+              <option value="department3">Department 3</option>
+            </select>
+          </div>
+
+          {/* Course Name */}
+          <div>
+            <label
+              htmlFor="courseName"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Course Name
+            </label>
+            <input
+              type="text"
+              id="courseName"
+              value={courseName}
+              onChange={(e) => setCourseName(e.target.value)}
+              placeholder="Enter course name"
+              className="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          {/* Course Image */}
           <div>
             <label
               htmlFor="departmentImage"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Department Image
+              Course Image
             </label>
             <div className="flex items-center border border-gray-300 rounded-md p-2">
               <input
@@ -114,24 +149,6 @@ const UpdateDepartment = () => {
                 ⬆️
               </button>
             </div>
-          </div>
-
-          {/* Department Name */}
-          <div>
-            <label
-              htmlFor="departmentName"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Department Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="departmentName"
-              value={departmentName}
-              onChange={(e) => setDepartmentName(e.target.value)}
-              placeholder="Enter department name"
-              className="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
-            />
           </div>
 
           {/* Description */}
@@ -166,4 +183,4 @@ const UpdateDepartment = () => {
   );
 };
 
-export default UpdateDepartment;
+export default UpdateCourse;
