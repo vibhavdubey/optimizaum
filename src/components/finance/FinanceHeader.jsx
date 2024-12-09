@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoCalendarClearOutline, IoSearch } from "react-icons/io5";
 import { SlBell } from "react-icons/sl";
 import StudentImg from "../../assets/studentImg.png";
 import { useLocation } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+import { MyContext } from "../../context/MyContext";
+import AddNewFee from "./forms/AddNewFee";
 
 const FinanceHeader = () => {
+  const { showAddNewFee, setShowAddNewFee } = useContext(MyContext);
   const { pathname } = useLocation();
   // console.log("---->", pathname);
   return (
@@ -55,9 +59,21 @@ const FinanceHeader = () => {
             </div>
           </div>
         </div>
-      ) : (
-        null
-      )}
+      ) : null}
+      {pathname === "/finance-fee-management" ? (
+        <div className="flex items-center justify-end gap-4">
+          <button
+            onClick={() => setShowAddNewFee(true)}
+            className="bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center gap-2 text-sm "
+          >
+            <span className="text-xl">
+              <FaPlus />
+            </span>
+            Add New Fee
+          </button>
+        </div>
+      ) : null}
+      {showAddNewFee ? <AddNewFee /> : null}
     </header>
   );
 };

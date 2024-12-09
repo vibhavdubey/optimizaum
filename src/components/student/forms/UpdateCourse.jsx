@@ -11,7 +11,9 @@ const UpdateCourse = () => {
     getAllStudentCourse,
     getSingleStudentCourse,
     singleStudentCourseDatas,
+    studentDepartmentDatas,
   } = useContext(MyContext);
+
   const [department, setDepartment] = useState("");
   const [courseName, setCourseName] = useState("");
   const [description, setDescription] = useState("");
@@ -21,8 +23,10 @@ const UpdateCourse = () => {
     getSingleStudentCourse(studentCourseDataId); // to get single course by id
     setCourseName(singleStudentCourseDatas.courseName);
     setDescription(singleStudentCourseDatas.description);
+    setDepartment(singleStudentCourseDatas.department?._id);
     // setImage()
   }, [API_BASE_URL]);
+  console.log(singleStudentCourseDatas);
 
   const handleImageUpload = (e) => {
     setImage(e.target.files[0]);
@@ -33,16 +37,24 @@ const UpdateCourse = () => {
 
     const formData = new FormData();
     formData.append("department", department);
-    formData.append("name", courseName);
+    formData.append("courseName", courseName);
     formData.append("description", description);
-    if (image) formData.append("image", image);
-
+    if (image) {
+      formData.append("courseImage", image);
+    }
+    formData.forEach((item) => {
+      console.log(item);
+    });
     axios
-      .put(`${API_BASE_URL}/course/${studentCourseDataId}`, formData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      .put(
+        `${API_BASE_URL}/student-management/courses/${studentCourseDataId}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((response) => {
         console.log("Response : ", response);
         alert("Course Updated successfully!");
@@ -96,9 +108,12 @@ const UpdateCourse = () => {
               <option value="" disabled>
                 Select Department
               </option>
-              <option value="department1">Department 1</option>
-              <option value="department2">Department 2</option>
-              <option value="department3">Department 3</option>
+              {studentDepartmentDatas &&
+                studentDepartmentDatas.map((item, index) => (
+                  <option value={item?._id} key={index}>
+                    {item?.departmentName}
+                  </option>
+                ))}
             </select>
           </div>
 

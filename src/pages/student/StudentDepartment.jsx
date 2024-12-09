@@ -22,7 +22,7 @@ const StudentDepartment = () => {
 
       <div className="overflow-x-auto ">
         <div className="w-full border-collapse">
-          <div className="custom-scrollbar overflow-y-auto mb-10 w-full">
+          <div className="custom-scrollbar overflow-y-auto mb-10 w-full min-h-screen">
             {studentDepartmentDatas &&
               studentDepartmentDatas.map((item, index) => (
                 <DepartmentTable

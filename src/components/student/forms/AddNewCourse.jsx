@@ -93,7 +93,7 @@ const AddNewCourse = () => {
               </option>
               {studentDepartmentDatas &&
                 studentDepartmentDatas.map((item, index) => (
-                  <option value={item?.departmentName} key={index}>
+                  <option value={item?._id} key={index}>
                     {item?.departmentName}
                   </option>
                 ))}

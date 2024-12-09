@@ -5,14 +5,23 @@ import { useNavigate } from "react-router-dom";
 export const MyContext = createContext();
 
 const MyContextProvider = (props) => {
+  //-------------------------------student--------------------------------
+
   const [showStudentFilter, setShowStudentFilter] = useState(false);
   const [showAddNewStudent, setShowAddNewStudent] = useState(false);
+  const [showUpdateStudent, setShowUpdateStudent] = useState(false);
   const [showAddNewDepartment, setShowAddNewDepartment] = useState(false);
   const [showUpdateDepartment, setShowUpdateDepartment] = useState(false);
   const [showAddNewCourse, setShowAddNewCourse] = useState(false);
   const [showUpdateCourse, setShowUpdateCourse] = useState(false);
   const [showAddNewSession, setShowAddNewSession] = useState(false);
+  const [showUpdateSession, setShowUpdateSession] = useState(false);
   const [showAddNewBatch, setShowAddNewBatch] = useState(false);
+
+  const [showStudentProfile, setShowStudentProfile] = useState(false);
+
+  //-------------------------------finance--------------------------------
+  const [showAddNewFee, setShowAddNewFee] = useState(false);
 
   const [showChooseLoginUser, setShowChooseLoginUser] = useState(false);
   const navigate = useNavigate();
@@ -35,7 +44,7 @@ const MyContextProvider = (props) => {
         },
       })
       .then((response) => {
-        console.log(response.data?.data);
+        // console.log(response.data?.data);
         setStudentDepartmentDatas(response.data?.data);
       })
       .catch((error) => {
@@ -51,7 +60,7 @@ const MyContextProvider = (props) => {
         },
       })
       .then((responce) => {
-        console.log(responce.data?.data);
+        // console.log(responce.data?.data);
         const data = responce.data?.data;
         setSingleStudentDepartmentDatas(data);
       })
@@ -73,13 +82,14 @@ const MyContextProvider = (props) => {
         },
       })
       .then((response) => {
-        console.log(response.data?.data);
+        // console.log(response.data?.data);
         setStudentCourseDatas(response.data?.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
   // to get a single student course data
   const getSingleStudentCourse = (studentCourseDataId) => {
     axios
@@ -89,7 +99,7 @@ const MyContextProvider = (props) => {
         },
       })
       .then((response) => {
-        console.log(response.data?.data);
+        // console.log(response.data?.data);
         const data = response.data?.data;
         setSingleStudentCourseDatas(data);
       })
@@ -114,7 +124,7 @@ const MyContextProvider = (props) => {
         },
       })
       .then((response) => {
-        console.log(response.data?.data);
+        // console.log(response.data?.data);
         setStudentSessionDatas(response.data?.data);
       })
       .catch((error) => {
@@ -122,6 +132,7 @@ const MyContextProvider = (props) => {
       });
   };
   // to get a single student session data
+
   const getSingleStudentSession = (studentSessionDataId) => {
     axios
       .get(`${API_BASE_URL}/sessions/${studentSessionDataId}`, {
@@ -130,7 +141,7 @@ const MyContextProvider = (props) => {
         },
       })
       .then((response) => {
-        console.log(response.data?.data);
+        // console.log(response.data?.data);
         const data = response.data?.data;
         setSingleStudentSessionDatas(data);
       })
@@ -139,12 +150,56 @@ const MyContextProvider = (props) => {
       });
   };
 
+  // ----------------------- Student  api call ---------------------------
+  const [studentsData, setStudentsData] = useState([]);
+  const [singleStudentDatas, setSingleStudentDatas] = useState({});
+  const [studentDataId, setStudentDataId] = useState();
+  const getAllStudents = () => {
+    axios
+      .get(`${API_BASE_URL}/students`, {
+        headers: {
+          Authorization: `Bearer${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        console.log(response?.data?.data);
+        const data = response?.data?.data;
+        setStudentsData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getSingleStudent = (studentDataId) => {
+    axios
+      .get(`${API_BASE_URL}/students/${studentDataId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        // console.log(response?.data?.data);
+        const data = response?.data?.data;
+        setSingleStudentDatas(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const value = {
     navigate,
+
+    // student related
     showStudentFilter,
     setShowStudentFilter,
+
     showAddNewStudent,
     setShowAddNewStudent,
+    showUpdateStudent,
+    setShowUpdateStudent,
+    showStudentProfile,
+    setShowStudentProfile,
 
     showAddNewDepartment,
     setShowAddNewDepartment,
@@ -158,6 +213,9 @@ const MyContextProvider = (props) => {
 
     showAddNewSession,
     setShowAddNewSession,
+    showUpdateSession,
+    setShowUpdateSession,
+
     showAddNewBatch,
     setShowAddNewBatch,
 
@@ -191,6 +249,19 @@ const MyContextProvider = (props) => {
     singleStudentSessionDatas,
     studentSessionDataId,
     setStudentSessionDataId,
+
+    // student getData and IdSet
+    getAllStudents, // function to get all student data
+    getSingleStudent, // function to get single student data by id
+    studentsData,
+    singleStudentDatas,
+    setStudentsData,
+    studentDataId,
+    setStudentDataId,
+
+    // finance related
+    showAddNewFee,
+    setShowAddNewFee,
   };
   return (
     <MyContext.Provider value={value}>{props.children}</MyContext.Provider>

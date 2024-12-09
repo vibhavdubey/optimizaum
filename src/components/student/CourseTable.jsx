@@ -10,6 +10,10 @@ const CourseTable = ({
   courseName,
   courseImage,
   description,
+
+  session,
+  students,
+  course,
 }) => {
   const {
     showUpdateCourse,
@@ -17,7 +21,6 @@ const CourseTable = ({
     API_BASE_URL,
     setStudentCourseDataId,
     getAllStudentCourse,
-    
   } = useContext(MyContext);
 
   const handleUpdate = (id) => {
@@ -33,7 +36,7 @@ const CourseTable = ({
     if (!confirmDelete) return;
 
     axios
-      .delete(`${API_BASE_URL}/student-management/course/${id}`, {
+      .delete(`${API_BASE_URL}/student-management/courses/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

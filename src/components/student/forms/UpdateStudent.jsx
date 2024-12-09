@@ -2,16 +2,22 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../context/MyContext";
 
-const AddNewStudent = () => {
+const UpdateStudent = () => {
   const {
-    showAddNewStudent,
-    setShowAddNewStudent,
     API_BASE_URL,
     studentDepartmentDatas,
     getAllStudentDepartment,
     getAllStudentSession,
     studentSessionDatas,
+
+    showUpdateStudent,
+    setShowUpdateStudent,
+    studentDataId,
+    getSingleStudent,
+    singleStudentDatas,
   } = useContext(MyContext);
+
+  // console.log(studentDataId);
 
   const [courseData, setCourseData] = useState([]);
 
@@ -180,8 +186,124 @@ const AddNewStudent = () => {
     setIsPublished(!isPublished);
   };
 
+  // getting single Student data
   useEffect(() => {
-    getAllStudentDepartment();
+    getSingleStudent(studentDataId);
+    // setAcademicDetails(singleStudentDatas?.academicDetails?.department);
+    if (singleStudentDatas) {
+      setAcademicDetails({
+        department: singleStudentDatas.academicDetails?.department?._id || "",
+        course: singleStudentDatas.academicDetails?.course?._id || "",
+        session: singleStudentDatas.academicDetails?.session?._id || "",
+      });
+
+      setPersonalDetails({
+        studentName: singleStudentDatas.personalDetails?.studentName || "",
+        fatherName: singleStudentDatas.personalDetails?.fatherName || "",
+        motherName: singleStudentDatas.personalDetails?.motherName || "",
+        email: singleStudentDatas.personalDetails?.email || "",
+        mobile: singleStudentDatas.personalDetails?.mobile || "",
+        alternateMobile:
+          singleStudentDatas.personalDetails?.alternateMobile || null,
+        dob: singleStudentDatas.personalDetails?.dob || "",
+        gender: singleStudentDatas.personalDetails?.gender || "",
+        category: singleStudentDatas.personalDetails?.category || "",
+        religion: singleStudentDatas.personalDetails?.religion || "",
+      });
+
+      setCorrespondenceAddress({
+        address1: singleStudentDatas.correspondenceAddress?.address1 || "",
+        address2: singleStudentDatas.correspondenceAddress?.address2 || null,
+        state: singleStudentDatas.correspondenceAddress?.state || "",
+        city: singleStudentDatas.correspondenceAddress?.city || "",
+        pincode: singleStudentDatas.correspondenceAddress?.pincode || "",
+      });
+
+      setPermanentAddress({
+        address1: singleStudentDatas.permanentAddress?.address1 || "",
+        address2: singleStudentDatas.permanentAddress?.address2 || null,
+        state: singleStudentDatas.permanentAddress?.state || "",
+        city: singleStudentDatas.permanentAddress?.city || "",
+        pincode: singleStudentDatas.permanentAddress?.pincode || "",
+      });
+
+      setQualificationDetails({
+        _10th: {
+          qualification:
+            singleStudentDatas.qualificationDetails?._10th?.qualification || "",
+          boardUniversity:
+            singleStudentDatas.qualificationDetails?._10th?.boardUniversity ||
+            "",
+          year: singleStudentDatas.qualificationDetails?._10th?.year || "",
+          maxMark:
+            singleStudentDatas.qualificationDetails?._10th?.maxMark || null,
+          obtainMark:
+            singleStudentDatas.qualificationDetails?._10th?.obtainMark || null,
+          subject:
+            singleStudentDatas.qualificationDetails?._10th?.subject || "",
+        },
+        _12th: {
+          qualification:
+            singleStudentDatas.qualificationDetails?._12th?.qualification || "",
+          boardUniversity:
+            singleStudentDatas.qualificationDetails?._12th?.boardUniversity ||
+            "",
+          year: singleStudentDatas.qualificationDetails?._12th?.year || "",
+          maxMark:
+            singleStudentDatas.qualificationDetails?._12th?.maxMark || null,
+          obtainMark:
+            singleStudentDatas.qualificationDetails?._12th?.obtainMark || null,
+          subject:
+            singleStudentDatas.qualificationDetails?._12th?.subject || "",
+        },
+        graduation: {
+          qualification:
+            singleStudentDatas.qualificationDetails?.graduation
+              ?.qualification || "",
+          boardUniversity:
+            singleStudentDatas.qualificationDetails?.graduation
+              ?.boardUniversity || "",
+          year: singleStudentDatas.qualificationDetails?.graduation?.year || "",
+          maxMark:
+            singleStudentDatas.qualificationDetails?.graduation?.maxMark ||
+            null,
+          obtainMark:
+            singleStudentDatas.qualificationDetails?.graduation?.obtainMark ||
+            null,
+          subject:
+            singleStudentDatas.qualificationDetails?.graduation?.subject || "",
+        },
+      });
+
+      setDocuments({
+        aadharFront: singleStudentDatas.documents?.aadharFront || "",
+        aadharBack: singleStudentDatas.documents?.aadharBack || "",
+        photo: singleStudentDatas.documents?.photo || "",
+        signature: singleStudentDatas.documents?.signature || "",
+        class10: singleStudentDatas.documents?.class10 || "",
+        class12: singleStudentDatas.documents?.class12 || "",
+        graduation: singleStudentDatas.documents?.graduation || "",
+        diploma: singleStudentDatas.documents?.diploma || "",
+        incomeCertificate:
+          singleStudentDatas.documents?.incomeCertificate || "",
+        domicileCertificate:
+          singleStudentDatas.documents?.domicileCertificate || "",
+      });
+
+      setRegistrationDetail({
+        admissionNumber:
+          singleStudentDatas.registrationDetail?.admissionNumber || "",
+        aadharNumber: singleStudentDatas.registrationDetail?.aadharNumber || "",
+        admissionDate:
+          singleStudentDatas.registrationDetail?.admissionDate || "",
+        panNumber: singleStudentDatas.registrationDetail?.panNumber || "",
+        rollNumber: singleStudentDatas.registrationDetail?.rollNumber || "",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    getAllStudentDepartment(studentDataId);
   }, []);
   console.log(studentDepartmentDatas);
 
@@ -205,7 +327,8 @@ const AddNewStudent = () => {
         console.log(error);
       });
   }, [academicDetails.department]);
-  console.log("course data --vibhav--:", courseData);
+
+  console.log("course data :", courseData);
 
   useEffect(() => {
     getAllStudentSession();
@@ -225,18 +348,22 @@ const AddNewStudent = () => {
     };
 
     axios
-      .post(`${API_BASE_URL}/student-management/students`, payload, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      .put(
+        `${API_BASE_URL}/student-management/students/${studentDataId}`,
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((response) => {
-        console.log("Data submitted successfully:", response.data);
-        alert("Student Data Added");
+        console.log("Data updated successfully:", response.data);
+        alert("Student Data Updated");
       })
       .catch((error) => {
         console.log(error);
-        alert("Error while adding data.");
+        alert("Error while updating student data.");
       });
   };
 
@@ -247,10 +374,10 @@ const AddNewStudent = () => {
     >
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
-          Add new student
+          Update student
         </h2>
         <button
-          onClick={() => setShowAddNewStudent(false)}
+          onClick={() => setShowUpdateStudent(false)}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
           aria-label="Close"
         >
@@ -1283,4 +1410,4 @@ const AddNewStudent = () => {
   );
 };
 
-export default AddNewStudent;
+export default UpdateStudent;

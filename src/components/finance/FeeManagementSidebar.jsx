@@ -5,10 +5,9 @@ import StudentImg from "../../assets/studentImg.png";
 
 const FeeManagementSideBar = () => {
   return (
-    <div className="bg-white shadow-lg rounded-2xl p-4 w-[25%]">
+    <div className="bg-white shadow-lg rounded-2xl p-4 w-[40%]">
       <div className="flex justify-between items-center mb-4">
         <div>
-          <h2 className="text-gray-500">Project Number</h2>
           <p className="text-md">PN0001245</p>
         </div>
         <button className="text-gray-900 hover:text-gray-700 p-2 rounded-[10px] bg-gray-200 ">
@@ -23,7 +22,7 @@ const FeeManagementSideBar = () => {
       </p>
 
       <h3 className="text-gray-500 text-md">Reporter</h3>
-      <div className="flex items-center mb-5">
+      <div className="flex items-center mt-2 mb-5">
         <img
           src={StudentImg}
           alt="Reporter Avatar"
@@ -49,21 +48,23 @@ const FeeManagementSideBar = () => {
           alt="Assignee 3"
           className="w-8 h-8 rounded-full -mr-2"
         />
-        <span className="text-white bg-blue-500 p-2 rounded-full">+2</span>
+        <span className="text-white bg-blue-500 w-8 h-8 rounded-full flex justify-center items-center">
+          +2
+        </span>
       </div>
 
       <h3 className="text-gray-500 text-md">Priority</h3>
       <div className="flex items-center mb-5 gap-2">
         <FaArrowUp className="text-yellow-500" />
-        <span className="text-yellow-500 font-bold">Medium</span>
+        <span className="text-yellow-500 font-semibold">Medium</span>
       </div>
 
       <h3 className="text-gray-500 text-md">Deadline</h3>
       <div className="flex items-center mb-5">
-        <span className="text-gray-700 font-bold">Feb 23, 2020</span>
+        <span className="text-gray-700 ">Feb 23, 2020</span>
       </div>
 
-      <div className="flex items-center mb-2 gap-3">
+      <div className="flex items-center mb-8 gap-3">
         <FaCalendar className="text-gray-500" />
         <span className="text-gray-700">Created May 28, 2020</span>
       </div>
