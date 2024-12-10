@@ -60,38 +60,43 @@ const StudentTable = ({
   };
 
   return (
-    <div className="hover:bg-gray-50 rounded-[15px] flex justify-around items-center my-2 bg-white shadow-sm">
-      <div className="p-4 flex items-center gap-2">
-        <img src={Images} alt="avatar" className="w-14 h-14 rounded-full" />
-      </div>
-      <div>
-        <p className="text-base">{name}</p>
-        <p className="text-sm text-gray-500">{email}</p>
-      </div>
-      <div className="border-l-2 border-b-2 border-violet-600 border-t-violet-300 border-r-violet-300 rounded-full px-2 py-1">
-        <p className="text-violet-600 text-base">{num}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Gender</p>
-        <p className="text-base">{gender}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Birthday</p>
-        <p className="text-base">{birthday}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Contact Number</p>
-        <p className="text-base">{contact}</p>
-      </div>
-      <div>
-        <p className="text-sm text-gray-500">Roll Number</p>
-        <p className="text-base">{roll}</p>
-      </div>
+    <div className="hover:bg-gray-50 rounded-[15px] flex justify-between items-center my-2 bg-white w-full shadow-sm">
+      <div className="flex justify-between items-center w-[90%]">
+        <div className="p-4 flex items-center gap-2">
+          <img src={Images} alt="avatar" className="w-14 h-14 rounded-full" />
+        </div>
 
-      <div className="h-12 flex items-end ">
-        <p className="text-sm font-semibold text-gray-500 border-2 border-gray-600 rounded-[4px] px-1 ">
-          {course}
-        </p>
+        <div>
+          <p className="text-base">{name}</p>
+          <p className="text-sm text-gray-500">{email}</p>
+        </div>
+
+        <div className="border-l-2 border-b-2 border-violet-600 border-t-violet-300 border-r-violet-300 rounded-full px-2 py-1">
+          <p className="text-violet-600 text-base">{num}</p>
+        </div>
+
+        <div>
+          <p className="text-sm text-gray-500">Gender</p>
+          <p className="text-base">{gender}</p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500">Birthday</p>
+          <p className="text-base">{birthday}</p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500">Contact Number</p>
+          <p className="text-base">{contact}</p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500">Roll Number</p>
+          <p className="text-base">{roll}</p>
+        </div>
+
+        <div className="h-12 flex items-end ">
+          <p className="text-sm font-semibold text-gray-500 border-2 border-gray-600 rounded-[4px] px-1 ">
+            {course}
+          </p>
+        </div>
       </div>
       {/* <p>
         <span
