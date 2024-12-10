@@ -28,7 +28,7 @@ const StudentProfile = ({ data = {} }) => {
     graduation = "",
   } = data;
 
-  const { showStudentProfile, setShowStudentProfile } = useContext(MyContext);
+  const { setShowStudentProfile } = useContext(MyContext);
 
   return (
     <div

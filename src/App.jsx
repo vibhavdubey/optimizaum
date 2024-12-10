@@ -36,8 +36,8 @@ const App = () => {
             <div className="w-full">
               <Routes>
                 {/* home page route  */}
-                <Route path="/optimizaum" element={<Home />} />
-                <Route path="/optimizaum/login" element={<Login />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
               </Routes>
             </div>
           </>
