@@ -49,10 +49,7 @@ const App = () => {
             <DashboardStudent />
             <div className="w-full">
               <Routes>
-                <Route
-                  path="/student-dashboard"
-                  element={<StudentDashboard />}
-                />
+                <Route path="/" element={<StudentDashboard />} />
                 <Route path="/student" element={<Student />} />
                 <Route
                   path="/student-department"
@@ -78,10 +75,7 @@ const App = () => {
             <div className="w-full">
               <Routes>
                 {/* finance ERP route  */}
-                <Route
-                  path="/finance-dashboard"
-                  element={<FinanceDashboard />}
-                />
+                <Route path="/" element={<FinanceDashboard />} />
                 <Route
                   path="/finance-fee-management"
                   element={<FinanceFeeManagement />}

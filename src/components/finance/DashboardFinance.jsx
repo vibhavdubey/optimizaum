@@ -34,7 +34,7 @@ const DashboardFinance = () => {
         <ul className="mt-6 space-y-4 h-[50vh] mb-5">
           <li className="w-full px-4 hover:border-r-4 border-blue-500">
             <NavLink
-              to="/finance-dashboard"
+              to="/"
               className="flex items-center space-x-3 text-gray-500 hover:text-blue-500 cursor-pointer hover:bg-[#EAF3FE] px-2 py-3 rounded-[10px] text-base"
             >
               <UserIcon className="w-6 h-6" />
